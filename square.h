@@ -28,6 +28,9 @@
 #define DISC_LESS_ZERO -2   // case with two roots on a complex plane
 
 // =================================================================================
+int isZero(double number) {
+	return fabs(number) < 0.000001;
+}
 
 int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2) {
 
@@ -42,11 +45,11 @@ int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2
 	assert(root1 != root2);
 
 	/* Root search */
-	if (cf1 == 0)
+	if (isZero(cf1))
 	{
-		if (cf2 == 0)
+		if (isZero(cf2))
 		{
-			return (cf3 == 0) ? SS_INF_ROOTS : NULL;
+			return (isZero(cf3)) ? SS_INF_ROOTS : 0;
 		}
 		else 	// cf2 != 0
 		{
@@ -57,26 +60,27 @@ int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2
 	else	// cf1 != 0		
 	{
 		double disc_t = cf2 * cf2 - 4 * cf1 * cf3;
-		if (disc_t == 0)
+		if (isZero(disc_t))
 		{
 			*root1 = *root2 = -cf2 / (2 * cf1);
 			return 1;
 		}
-		else if (disc_t > 0)
-		{
-			double sqrt_d = sqrt(disc_t);
-			*root1 = (-cf2 - sqrt_d) / (2 * cf1);
-			*root2 = (-cf2 + sqrt_d) / (2 * cf1);
-			return 2;
-		}
-		else    // disc_t < 0 
-		{
-			return DISC_LESS_ZERO;
+		else {
+			if (disc_t > 0)
+			{
+				double sqrt_d = sqrt(disc_t);
+				*root1 = (-cf2 - sqrt_d) / (2 * cf1);
+				*root2 = (-cf2 + sqrt_d) / (2 * cf1);
+				return 2;
+			}
+			else    // disc_t < 0 
+			{
+				return DISC_LESS_ZERO;
+			}
 		}
 	}
 
 }
 
-// =================================================================================
 
 #endif square.h
