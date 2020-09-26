@@ -1,15 +1,23 @@
 ﻿/* QUADRATIC EQUATION */
 
-#include <stdio.h>
 #include "square.h"
+
+#include <stdio.h>
 #include <Windows.h>
 
 // ====================================================================
-
-void CheckDouble(double*, const char[]); // Checking the correctness of the entered data
-void TestSolver(); // Programm testing
+//! Function for checking the correctness of the input
+//! 
+//! @param [in] d_num - Pointer of the n-st coefficient 
+//! @param [in] prompt[] - Output information
+// ====================================================================
+void CheckDouble(double*, const char[]); 
 
 // ====================================================================
+//! Function for testing the programm
+//! Checking all return values of a function SolveSquare
+// ====================================================================
+void TestSolver(); 
 
 int main() {
 	SetConsoleOutputCP(1251);
@@ -59,8 +67,6 @@ int main() {
 	return 0;
 }
 
-// ====================================================================
-
 void CheckDouble(double* d_num, const char prompt[]) {
 	while (1) {
 		printf("%s", prompt);
@@ -77,8 +83,6 @@ void CheckDouble(double* d_num, const char prompt[]) {
 		}
 	}
 }
-
-// ======================================================================
 
 void TestSolver() {
 	printf("\nTest run ...\n");
