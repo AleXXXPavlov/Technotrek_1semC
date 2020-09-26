@@ -1,9 +1,9 @@
 ﻿/* QUADRATIC EQUATION */
-#define _CRT_SECURE_NO_WARNINGS 
 
 #include <stdio.h>
 #include "square.h"
 #include <Windows.h>
+
 // ====================================================================
 
 void CheckDouble(double*, const char[]); // Checking the correctness of the entered data
@@ -14,15 +14,18 @@ void TestSolver(); // Programm testing
 int main() {
 	SetConsoleOutputCP(1251);
 
+	/* Input of initial data */
 	printf("# Welcome, this is square equation solver.\n# (c) Pavlov Sasha 2020 \n");
 	printf("\n# Square equation: a * x^2 + b * x + c = 0\n\n");
 
 	double cf1 = 0, cf2 = 0, cf3 = 0;
 
+	/* Correctness check */
 	CheckDouble(&cf1, "Enter a: ");
 	CheckDouble(&cf2, "Enter b: ");
 	CheckDouble(&cf3, "Enter c: ");
 
+	/* Solution implementation */
 	double root1 = 0, root2 = 0;
 	int numRoots = SolveSquare(cf1, cf2, cf3, &root1, &root2);
 
@@ -53,8 +56,6 @@ int main() {
 		return 1;
 	}
 
-	TestSolver();
-
 	return 0;
 }
 
@@ -82,11 +83,13 @@ void CheckDouble(double* d_num, const char prompt[]) {
 void TestSolver() {
 	printf("\nTest run ...\n");
 
+	/* Data for the test */
 	double arr_coeff[] = { 0, 0, 0, -1, 2, 1, 23.4, -22.5745, 34, 0, 1e-7, 2.4756 };
 	double arr_results[] = { SS_INF_ROOTS, 2, DISC_LESS_ZERO, 1 };
 	double root1_ch = 0, root2_ch = 0;
 	int check_numR;
 
+	/* Check */
 	for (int i = 0; i < 4; ++i) {
 		check_numR = SolveSquare(arr_coeff[i * 3], arr_coeff[i * 3 + 1], arr_coeff[i * 3 + 2], &root1_ch, &root2_ch);
 
@@ -97,7 +100,7 @@ void TestSolver() {
 		else
 		{
 			printf("\nTest №%d failed.\n", i + 1);
-			printf("Final results:\n\tNumber of roots = %d\n\troot1 = %lg\n\troot2 = %lg", check_numR, &root1_ch, &root2_ch);
+			printf("Final results:\n\tNumber of roots = %d\n\troot1 = %lf\n\troot2 = %lf", check_numR, &root1_ch, &root2_ch);
 		}
 	}
 }
