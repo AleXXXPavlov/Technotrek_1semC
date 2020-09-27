@@ -1,5 +1,6 @@
 ﻿/* QUADRATIC EQUATION */
 
+
 #include "square.h"
 
 #include <stdio.h>
@@ -106,7 +107,7 @@ void TestSolver() {
 		else
 		{
 			printf("\nTest №%d failed.\n", i + 1);
-			printf("Final results:\n\tNumber of roots = %d\n\troot1 = %lf\n\troot2 = %lf", check_numR, &root1_ch, &root2_ch);
+			printf("Final results:\n\tNumber of roots = %d\n\troot1 = %lg\n\troot2 = %lg", check_numR, root1_ch, root2_ch);
 		}
 	}
 }
