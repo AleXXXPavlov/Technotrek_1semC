@@ -11,13 +11,13 @@
 //! @param [in] d_num - Pointer of the n-st coefficient 
 //! @param [in] prompt[] - Output information
 // ====================================================================
-void CheckDouble(double*, const char[]); 
+void CheckDouble(double*, const char[]);
 
 // ====================================================================
 //! Function for testing the programm
 //! Checking all return values of a function SolveSquare
 // ====================================================================
-void TestSolver(); 
+void TestSolver();
 
 int main() {
 	SetConsoleOutputCP(1251);
@@ -64,6 +64,8 @@ int main() {
 		return 1;
 	}
 
+	TestSolver();
+
 	return 0;
 }
 
@@ -88,13 +90,13 @@ void TestSolver() {
 	printf("\nTest run ...\n");
 
 	/* Data for the test */
-	double arr_coeff[] = { 0, 0, 0, -1, 2, 1, 23.4, -22.5745, 34, 0, 1e-7, 2.4756 };
-	double arr_results[] = { SS_INF_ROOTS, 2, DISC_LESS_ZERO, 1 };
+	double arr_coeff[] = { 0, 0, 0, -1, 2, 1, 23.4, -22.5745, 34, 0, 1e-4, 2.4756, 1e-10, 1e-11, 1e-10 };
+	double arr_results[] = { SS_INF_ROOTS, 2, DISC_LESS_ZERO, 1, SS_INF_ROOTS };
 	double root1_ch = 0, root2_ch = 0;
 	int check_numR;
 
 	/* Check */
-	for (int i = 0; i < 4; ++i) {
+	for (int i = 0; i < 5; ++i) {
 		check_numR = SolveSquare(arr_coeff[i * 3], arr_coeff[i * 3 + 1], arr_coeff[i * 3 + 2], &root1_ch, &root2_ch);
 
 		if (check_numR == arr_results[i])
