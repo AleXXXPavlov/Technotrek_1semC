@@ -7,15 +7,21 @@
 #include <stdio.h>
 
 // -------------------------------------------------
-//! Function for testing the function SolveSquare
+//! Function for testing one set of coefficients
 //! 
-//! @param [in] cf1 cf1-coefficient
-//! @param [in] cf2 cf2-coefficient
-//! @param [in] cf3 cf3-coefficient
-//!
-//! Either returns the location of the error 
-//! or confirms the correctness of the program
+//! @param [in]  pointer to the first coefficient in 
+//! the array of coefficients
+//! @param [in]  expected result
+//! 
 // -------------------------------------------------
+void unitTest(double*, int);
+
+// -------------------------------------------------
+//! Function to convey parameters to a unitTest function
+//!
+// -------------------------------------------------
+void TestSolver();
+
 void unitTest(double* arr_cfs, int ref)
 {
 	double root_1, root_2;
@@ -31,10 +37,7 @@ void unitTest(double* arr_cfs, int ref)
 	}
 }
 
-// -------------------------------------------------
-//! Function to convey parameters to a unitTest function
-//!
-// -------------------------------------------------
+
 void TestSolver() {
 	printf("\nTest run ...\n");
 
