@@ -1,9 +1,24 @@
 /* QUADRATIC EQUATION SOLUTION FUNCTION */
 
-#ifndef square.h
+#ifndef square
 #define square
 
-// ===============================================================================
+#include <assert.h>
+#include <float.h>
+#include <math.h>
+
+#define SS_INF_ROOTS -1     // case with infinite number of roots
+#define DISC_LESS_ZERO -2   // case with two roots on a complex plane
+
+// -------------------------------------------------------------------------------
+//! Function for filtering out very small numbers
+//!
+// -----------------------------------------------------------------------------
+int isZero(double number) {
+	return fabs(number) < 0.000001;
+}
+
+// -------------------------------------------------------------------------------
 //! Solves a square equation:   cf1 * x^2 + cf2 * x + cf3
 //! 
 //! @param [in] cf1 cf1-coefficient
@@ -17,21 +32,7 @@
 //! @note In case of infinite number of roots, returns SS_INF_ROOTS
 //! @note In case of two roots on a complex plane, returns DISC_LESS_ZERO
 //!
-// ===============================================================================
-
-
-#include <assert.h>
-#include <float.h>
-#include <math.h>
-
-#define SS_INF_ROOTS -1     // case with infinite number of roots
-#define DISC_LESS_ZERO -2   // case with two roots on a complex plane
-
-// =================================================================================
-int isZero(double number) {
-	return fabs(number) < 0.000001;
-}
-
+// -------------------------------------------------------------------------------
 int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2) {
 
 	/* Check for final size */
@@ -79,8 +80,9 @@ int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2
 			}
 		}
 	}
-
 }
 
 
-#endif square.h
+
+
+#endif square
