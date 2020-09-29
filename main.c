@@ -1,7 +1,5 @@
 ﻿/* QUADRATIC EQUATION */
 
-#define _CRT_SECURE_NO_WARNINGS
-
 #include "square.h"
 #include "unittest.h"
 
@@ -41,7 +39,7 @@ int main() {
 	switch (numRoots)
 	{
 	case 0:
-		printf("\nThis equation hasn't roots\n");
+		printf("\nThis equation has no roots\n");
 		break;
 
 	case 1:
@@ -65,8 +63,6 @@ int main() {
 		return 1;
 	}
 
-	TestSolver();
-
 	return 0;
 }
 
@@ -84,19 +80,5 @@ void CheckDouble(double* d_num, const char prompt[]) {
 		{
 			break;
 		}
-	}
-}
-
-
-void TestSolver() {
-	printf("\nTest run ...\n");
-
-	/* Data for the test */
-	double arr_coeff[] = { 0, 0, 0, -1, 2, 1, 23.4, -22.5745, 34, 0, 1e-4, 2.4756, 1e-10, 1e-11, 1e-10 };
-	int arr_results[] = { SS_INF_ROOTS, 2, DISC_LESS_ZERO, 1, SS_INF_ROOTS };
-
-	/* Check */
-	for (int i = 0; i < 5; ++i) {
-		unitTest(arr_coeff + i * 3, arr_results[i]);
 	}
 }
