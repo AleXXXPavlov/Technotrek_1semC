@@ -62,11 +62,6 @@ int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2
 	{
 		double disc = cf2 * cf2 - 4 * cf1 * cf3;
 
-		if (disc < 0)
-		{
-			return DISC_LESS_ZERO;
-		}
-
 		if (isZero(disc))
 		{
 			*root1 = *root2 = -cf2 / (2 * cf1);
@@ -74,12 +69,17 @@ int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2
 		}
 		else
 		{
-			double sqrt_d = sqrt(disc);
-			*root1 = (-cf2 - sqrt_d) / (2 * cf1);
-			*root2 = (-cf2 + sqrt_d) / (2 * cf1);
-			return 2;
-			
-			
+			if (disc > 0.000001)
+			{
+				double sqrt_d = sqrt(disc);
+				*root1 = (-cf2 - sqrt_d) / (2 * cf1);
+				*root2 = (-cf2 + sqrt_d) / (2 * cf1);
+				return 2;
+			}
+			else
+			{
+				return DISC_LESS_ZERO;
+			}
 		}
 	}
 }
