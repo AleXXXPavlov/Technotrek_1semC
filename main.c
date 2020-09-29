@@ -1,11 +1,11 @@
 ﻿/* QUADRATIC EQUATION */
 
+#define _CRT_SECURE_NO_WARNINGS
 
 #include "square.h"
 #include "unittest.h"
 
 #include <stdio.h>
-#include <Windows.h>
 
 // --------------------------------------------------------------------
 //! Function for checking the correctness of the input
@@ -22,7 +22,6 @@ void CheckDouble(double*, const char[]);
 void TestSolver();
 
 int main() {
-	SetConsoleOutputCP(1251);
 
 	/* Input of initial data */
 	printf("# Welcome, this is square equation solver.\n# (c) Pavlov Sasha 2020 \n");
