@@ -3,6 +3,7 @@
 #ifndef unittest
 #define unittest
 
+#include "square.h"
 #include <stdio.h>
 
 // -------------------------------------------------
@@ -27,6 +28,23 @@ void unitTest(double* arr_cfs, int ref)
 	else
 	{
 		printf("\nTest failed: result == %d, but should be %d.\n", ref, res);
+	}
+}
+
+// -------------------------------------------------
+//! Function to convey parameters to a unitTest function
+//!
+// -------------------------------------------------
+void TestSolver() {
+	printf("\nTest run ...\n");
+
+	/* Data for the test */
+	double arr_coeff[] = { 0, 0, 0, -1, 2, 1, 23.4, -22.5745, 34, 0, 1e-4, 2.4756, 1e-10, 1e-11, 1e-10 };
+	int arr_results[] = { SS_INF_ROOTS, 2, DISC_LESS_ZERO, 1, SS_INF_ROOTS };
+
+	/* Check */
+	for (int i = 0; i < 5; ++i) {
+		unitTest(arr_coeff + i * 3, arr_results[i]);
 	}
 }
 
