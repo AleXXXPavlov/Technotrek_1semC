@@ -10,12 +10,14 @@
 #define SS_INF_ROOTS -1     // case with infinite number of roots
 #define DISC_LESS_ZERO -2   // case with two roots on a complex plane
 
+const double epsilon = 1e-6;
+
 // -------------------------------------------------------------------------------
 //! Function for filtering out very small numbers
 //!
-// -----------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 int isZero(double number) {
-	return fabs(number) < 0.000001;
+	return fabs(number) < epsilon;
 }
 
 // -------------------------------------------------------------------------------
@@ -45,6 +47,7 @@ int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2
 	assert(root2 != NULL);
 	assert(root1 != root2);
 
+
 	/* Root search */
 	if (isZero(cf1))
 	{
@@ -67,19 +70,16 @@ int SolveSquare(double cf1, double cf2, double cf3, double* root1, double* root2
 			*root1 = *root2 = -cf2 / (2 * cf1);
 			return 1;
 		}
+		else if (!isZero(disc) && disc > 0)
+		{
+			double sqrt_d = sqrt(disc);
+			*root1 = (-cf2 - sqrt_d) / (2 * cf1);
+			*root2 = (-cf2 + sqrt_d) / (2 * cf1);
+			return 2;
+		}
 		else
 		{
-			if (disc > 0.000001)
-			{
-				double sqrt_d = sqrt(disc);
-				*root1 = (-cf2 - sqrt_d) / (2 * cf1);
-				*root2 = (-cf2 + sqrt_d) / (2 * cf1);
-				return 2;
-			}
-			else
-			{
-				return DISC_LESS_ZERO;
-			}
+			return DISC_LESS_ZERO;			
 		}
 	}
 }
