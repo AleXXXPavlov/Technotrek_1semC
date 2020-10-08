@@ -26,8 +26,8 @@ char* FileReader(char[], long long*);
 //!
 //! @param [in] pointer to character buffer
 //! @param [in] pointer to the number of strings
-//! @param [in] number of characters in the buffer
-//! @param [out] buffer of pointers to the beginning of lines
+//! @param [in] number of characters in buffer
+//! @param [out] buffer of pointers to beginning of lines
 //!
 // --------------------------------------------------------------
 char** StrSplitting(char*, long*, long long);
@@ -36,8 +36,8 @@ char** StrSplitting(char*, long*, long long);
 //! Function to redefinition residual characters in the buffer
 //! 
 //! @param [in] pointer to character buffer
-//! @param [in] number of characters in the buffer
-//! @param [in] number of strings in the buffer
+//! @param [in] number of characters in buffer
+//! @param [in] number of strings in buffer
 //!
 // --------------------------------------------------------------
 void Redefinition(char*, long long, long);
@@ -55,8 +55,8 @@ int MyComparator(const void*, const void*);
 // --------------------------------------------------------------
 //! Function for writing an ascending poem to a file
 //!
-//! @param [in] buffer of pointers to the beginning of lines
-//! @param [in] number of the strings
+//! @param [in] buffer of pointers to beginning of lines
+//! @param [in] number of strings
 //! @param [in] file name
 //!
 // --------------------------------------------------------------
@@ -65,7 +65,7 @@ void PrintSortedPoem1(char**, long, char[]);
 // --------------------------------------------------------------
 //! Function for writing an descending poem to a file
 //!
-//! @param [in] buffer of pointers to the beginning of lines
+//! @param [in] buffer of pointers to beginning of lines
 //! @param [in] number of strings
 //! @param [in] file name
 //!
@@ -75,7 +75,7 @@ void PrintSortedPoem2(char**, long, char[]);
 // --------------------------------------------------------------
 //! Function to write a poem to a file
 //!
-//! @param [in] pointer to the character buffer
+//! @param [in] pointer to character buffer
 //! @param [in] number of characters
 //! @param [in] number of strings
 //! @param [in] file name
