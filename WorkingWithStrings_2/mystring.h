@@ -1,7 +1,7 @@
 /* EQUIVALENTS OF STANDARD FUNCTIONS */
 
-#ifndef mystring.h
-#define mystring.h
+#ifndef mystring
+#define mystring
 
 #include <stdio.h>
 #include <assert.h>
@@ -162,4 +162,4 @@ char* StrTok(char* str, const char* set) {
 	return result;
 }
 
-#endif mystring.h
+#endif mystring
