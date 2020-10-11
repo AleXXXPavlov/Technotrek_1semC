@@ -50,24 +50,14 @@ void Redefinition(char*, long long, long);
 int MyComparator(const void*, const void*);
 
 // --------------------------------------------------------------
-//! Function for writing an ascending poem to a file
+//! Function for writing an ascending and descending poem to a file
 //!
 //! @param [in] buffer of pointers to beginning of lines
 //! @param [in] number of strings
 //! @param [in] file name
 //!
 // --------------------------------------------------------------
-void PrintSortedPoem1(char**, long, char[]);
-
-// --------------------------------------------------------------
-//! Function for writing an descending poem to a file
-//!
-//! @param [in] buffer of pointers to beginning of lines
-//! @param [in] number of strings
-//! @param [in] file name
-//!
-// --------------------------------------------------------------
-void PrintSortedPoem2(char**, long, char[]);
+void PrintSortedPoem(char**, long, char[]);
 
 // --------------------------------------------------------------
 //! Function to write a poem to a file
@@ -148,29 +138,21 @@ int MyComparator(const void* str1, const void* str2) {
 	return sym1 - sym2;
 }
 
-void PrintSortedPoem1(char** buff_addr, long num_str, char file_name[]) {
+void PrintSortedPoem(char** buff_addr, long num_str, char file_name[]) {
 	FILE* f_poem = fopen(file_name, "w");
 
 	for (int i = 0; i < num_str; ++i) {
 		fputs(buff_addr[i], f_poem);
 		fputc('\n', f_poem);
 	}
-
 	fputc('\n', f_poem);
-
-	fclose(f_poem);
-}
-
-void PrintSortedPoem2(char** buff_addr, long num_str, char file_name[]) {
-	FILE* f_poem = fopen(file_name, "a");
 
 	for (int i = num_str - 1; i > -1; --i) {
 		fputs(buff_addr[i], f_poem);
 		fputc('\n', f_poem);
 	}
-
 	fputc('\n', f_poem);
-
+	
 	fclose(f_poem);
 }
 
