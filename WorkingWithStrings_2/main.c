@@ -23,8 +23,7 @@ int main() {
 	qsort(buff_addr, num_str, sizeof(char*), MyComparator);
 
 	/* Entering results into a file */
-	PrintSortedPoem1(buff_addr, num_str, file_name);
-	PrintSortedPoem2(buff_addr, num_str, file_name);
+	PrintSortedPoem(buff_addr, num_str, file_name);
 	PrintPoem(main_buffer, size, num_str, file_name);
 
 	return 0;
