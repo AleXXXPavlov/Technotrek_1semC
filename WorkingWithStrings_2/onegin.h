@@ -79,7 +79,7 @@ char* FileReader(char file_name[], long long* fsize) {
 	*fsize = ftell(f_poem) + 1;
 	fseek(f_poem, 0, SEEK_SET);
 
-	char* f_buff = (char*)malloc(*fsize * sizeof(char));
+	char* f_buff = (char*)calloc(*fsize * sizeof(char));
 
 	assert(f_buff != NULL);
 	fread(f_buff, sizeof(char), *fsize, f_poem);
@@ -95,7 +95,7 @@ char** StrSplitting(char* buff, long* num_str, long long size) {
 			++(*num_str);
 	}
 
-	char** arr_addr = (char**)malloc(*num_str * sizeof(char*)); // array of strings' addresses
+	char** arr_addr = (char**)calloc(*num_str * sizeof(char*)); // array of strings' addresses
 	arr_addr[0] = buff;
 
 	long ai = 0;
