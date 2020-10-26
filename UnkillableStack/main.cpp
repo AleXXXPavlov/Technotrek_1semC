@@ -22,6 +22,6 @@ int main()
 	}
 
 	Sk_Dump(sk1);
-
+	Sk_Destructor(sk1);
 	return 0;
 }
