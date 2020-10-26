@@ -10,7 +10,7 @@
 typedef double type_el; // stack member type
 typedef int sk_error;
 
-size_t CAPACITY = 10; // start capacity
+size_t CAPACITY = 10; // starting capacity
 
 unsigned long long CANARY = 736845756857873; // CANARY'S VALUE
 
@@ -67,7 +67,7 @@ int Sk_Destructor(stack*);
 //! Function to increase capacity
 //! 
 //! @param [in] stack pointer
-//! @param [out] result of change capacity
+//! @param [out] result of capacity change
 //!
 // -----------------------------------------------------------------
 int Change_Capacity(stack*);
@@ -85,7 +85,7 @@ int Sk_Print(stack*);
 //! Function to add an item to the stack
 //!
 //! @param [in] stack pointer
-//! @param [in] stack member type
+//! @param [in] stack element type
 //! @param [out] result of pushing an item onto the stack
 //!
 // -----------------------------------------------------------------
